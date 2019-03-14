@@ -9,37 +9,26 @@ class Server:
     config = json.load(config)
     botToken = config['botToken']
 
-
-
-
     bot = TelegramBot(botToken)
     yolo = Yolo()
 
-    messageStack = bot.getNewMessages()
+    bot.sendMessage("testNachricht", "621555854")
 
-    photoStack = []
-    if len(messageStack) > 0:
-        for i in messageStack:
-            if 'photo' in i:
-                photoStack.append(i)
+    def server(self):
+        messagestack = self.bot.getNewMessages()
 
-        print("Photos found:")
-        for p in photoStack:
-            print(p)
+        photostack = []
+        if len(messagestack) > 0:
+            for i in messagestack:
+                if 'photo' in i:
+                    photostack.append(i)
 
-        print("\n")
+            print("Photos found:")
+            for p in photostack:
+                print(p)
 
-    for p in photoStack:
+            print("\n")
 
-        bot.getPicture(p['photo'][3]['file_id'])
+        for p in photostack:
 
-
-
-
-
-
-
-
-
-
-
+            self.bot.getPicture(p['photo'][3]['file_id'])

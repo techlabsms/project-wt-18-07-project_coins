@@ -10,7 +10,7 @@ class TelegramBot:
     botToken = ""
 
 
-    def __init__(self,bottoken):
+    def __init__(self, bottoken):
         self.botToken = bottoken
 
         print("TelegramBot initialized \n")
@@ -34,8 +34,6 @@ class TelegramBot:
         print()
 
         return messageStack
-
-
 
 
     def getPicture(self,fileId):
@@ -63,8 +61,10 @@ class TelegramBot:
         print("file downloaded!\n")
 
 
-    def sendMessage(self):
-        print("sendMessage")
+    def sendMessage(self ,text, chatid):
 
-    def getMe(self):
-        print()
+        print("sending message...\n")
+        urllib.request.urlopen("https://api.telegram.org/bot" + self.botToken + "/sendmessage?chat_id="+chatid+"&text="+text,context=self.context)
+        print("message sent!")
+
+
