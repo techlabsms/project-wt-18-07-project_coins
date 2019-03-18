@@ -9,12 +9,13 @@ class TelegramBot:
     context = ssl._create_unverified_context()
     botToken = ""
 
-
+    # setup Bot
     def __init__(self, bottoken):
         self.botToken = bottoken
 
         print("TelegramBot initialized \n")
 
+    # download new messages and return messagestack
     def getNewMessages(self):
         print("getNewMessages...\n")
         messageStack = []
@@ -28,6 +29,7 @@ class TelegramBot:
                 self.messageId= self.messageId+1
                 messageStack.append(i['message'])
 
+        # print new messages
         print("new Messages:")
         for n in messageStack:
             print(n)
@@ -35,8 +37,9 @@ class TelegramBot:
 
         return messageStack
 
-
+    # download picture by fileId to darknet folder
     def getPicture(self,fileId):
+        # Get path
         print("fileId:")
         print(fileId+"\n")
         print("Getting Path...\n")
@@ -47,12 +50,14 @@ class TelegramBot:
         filepath = data['result']['file_path']
         url = "https://api.telegram.org/file/bot" + self.botToken + "/" + filepath
         print(url +"\n")
+
+        # download file
         print("Downloading file...\n")
         file = urllib.request.urlopen(url, context=self.context)
 
-        title = "testFile"
-
-        new_path = title + ".jpg"
+        # save to disk
+        title = "userPicture"
+        new_path ="darknet/"+ title + ".jpg"
         new_days = open(new_path, 'wb')
 
         new_days.write(file.read())
@@ -60,11 +65,11 @@ class TelegramBot:
 
         print("file downloaded!\n")
 
-
+    # send text to chatid
     def sendMessage(self ,text, chatid):
 
         print("sending message...\n")
-        urllib.request.urlopen("https://api.telegram.org/bot" + self.botToken + "/sendmessage?chat_id="+chatid+"&text="+text,context=self.context)
+        urllib.request.urlopen("https://api.telegram.org/bot" + self.botToken + "/sendmessage?chat_id="+str(chatid)+"&text="+text,context=self.context)
         print("message sent!")
 
 
