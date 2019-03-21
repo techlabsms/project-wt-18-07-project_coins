@@ -52,7 +52,7 @@ class Server:
                 bot.getPicture(photos['photo'][-1]['file_id'])
                 # send confirmation
                 bot.sendMessage("Thank you for sending me your picture!" , photos['from']['id'])
-                bot.sendMessage("I'm looking at them right now...", photos['from']['id'])
+                bot.sendMessage("I'm looking at it right now...", photos['from']['id'])
                 # run yolo on picture
                 numbers = yolo.start()
                 bot.sendMessage("These are the Coins I found:", photos['from']['id'])
