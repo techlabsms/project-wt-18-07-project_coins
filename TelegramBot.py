@@ -26,7 +26,7 @@ class TelegramBot:
 
         for i in data['result']:
             if i['message']['message_id'] > self.messageId:
-                self.messageId= self.messageId+1
+                self.messageId= i['message']['message_id']
                 messageStack.append(i['message'])
 
         # print new messages
@@ -69,7 +69,7 @@ class TelegramBot:
     def sendMessage(self ,text, chatid):
 
         print("sending message...\n")
-        urllib.request.urlopen("https://api.telegram.org/bot" + self.botToken + "/sendmessage?chat_id="+str(chatid)+"&text="+text,context=self.context)
+        urllib.request.urlopen("https://api.telegram.org/bot" + self.botToken + "/sendmessage?chat_id="+str(chatid)+"&text="+str(text),context=self.context)
         print("message sent!")
 
 
