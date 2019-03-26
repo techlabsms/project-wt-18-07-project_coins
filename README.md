@@ -12,5 +12,6 @@ This project contains the server application, all edited Yolo files and the jupy
 2. get Yolo and copy the files of the darknet folder to the same directory as the Server.py
    Yolo can be found here: https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection
 3. get all the files from https://drive.google.com/open?id=1iP7EmfRxCbLRir7CyK7TrtmBLwc0IhK4 and copy them to the darknet        folder
-4. enter bot name to config file and rename config file to config.txt
+4. enter bot token of your telegram bot to config file and rename config file to config.txt
+   more information on Telegram Bots: https://core.telegram.org/bots
 5. run server.py
