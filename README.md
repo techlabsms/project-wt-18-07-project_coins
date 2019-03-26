@@ -3,6 +3,8 @@
 project coins is a Server application for a Telegram Bot to analyze coins for value. 
 for more details check our blogpost
 
+This project contains the server application, all edited Yolo files and the jupyter notebook we used to train the weigths.
+
 
 # how to run:
 1. download all files
